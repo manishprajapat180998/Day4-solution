@@ -89,27 +89,27 @@ func GetAllCustomers(customer *[]Customer) (err error) {
 	return nil
 }
 // Insert a new data
-func CreateUser(customer *Customer) (err error) {
+func CreateCustomer(customer *Customer) (err error) {
 	if err = Config.DB.Create(customer).Error; err != nil {
 		return err
 	}
 	return nil
 }
 // Get customer data using id
-func GetUserByID(customer *Customer, id string) (err error) {
+func GetCustomerByID(customer *Customer, id string) (err error) {
 	if err = Config.DB.Where("cust_id = ?", id).First(customer).Error; err != nil {
 		return err
 	}
 	return nil
 }
 // Update customer data
-func UpdateUser(customer *Customer, id string) (err error) {
+func UpdateCustomer(customer *Customer, id string) (err error) {
 	fmt.Println(customer)
 	Config.DB.Save(customer)
 	return nil
 }
 // Delete customer data
-func DeleteUser(customer *Customer, id string) (err error) {
+func DeleteCustomer(customer *Customer, id string) (err error) {
 	Config.DB.Where("cust_id = ?", id).Delete(customer)
 	return nil
 }
